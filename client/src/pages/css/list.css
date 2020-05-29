@@ -1,0 +1,308 @@
+.listpage_skeleon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px; }
+
+.listpage_container {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) 1fr;
+  grid-template-rows: 32px 48px 48px 1fr;
+  background-color: #f5f8f9;
+  width: 100vw;
+  height: 100vh; }
+
+.listpage_filter_zone {
+  grid-column: 1/2;
+  height: 80vh;
+  display: grid;
+  grid-template-rows: 48px 72px 88px 12px 32px 1fr;
+  grid-template-columns: 36px 1fr; }
+
+.listpage_back {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  position: relative;
+  top: 8px;
+  grid-row: 1/2;
+  grid-column: 2/3; }
+
+.listpage_view_select {
+  grid-row: 3/4;
+  grid-column: 2/3; }
+
+.listpage_view_option {
+  margin-bottom: 16px;
+  cursor: pointer;
+  width: 100px;
+  margin-left: 8px; }
+
+.listpage_view_text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+  color: #646464; }
+  .listpage_view_text:hover {
+    color: #000; }
+
+.listpage_view_checkbox {
+  float: left;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #646464;
+  margin-right: 8px;
+  box-sizing: border-box;
+  border-radius: 4px 4px 0px 4px; }
+
+.listpage_flex_line {
+  grid-row: 5/6;
+  grid-column: 2/3;
+  bottom: 0px;
+  width: 84%;
+  height: 2px;
+  background: #4b4b4b;
+  border-radius: 16px; }
+
+.listpage_month_box {
+  grid-row: 6/7;
+  grid-column: 2/3; }
+
+.listpage_month {
+  width: 104px;
+  height: 104px;
+  left: 31px;
+  top: 471px;
+  background: #ffffff;
+  box-shadow: 3px 6px 16px rgba(66, 66, 66, 0.08);
+  border-radius: 16px 16px 4px 16px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 41px;
+  letter-spacing: -0.06em;
+  color: #777777;
+  padding-left: 20px;
+  padding-top: 12px;
+  margin-bottom: 28px;
+  cursor: pointer; }
+
+.listpage_month_sum {
+  position: relative;
+  font-size: 24px;
+  bottom: 12px;
+  right: 12px;
+  text-align: right; }
+
+.listpage_search_zone {
+  position: relative;
+  width: 600px;
+  left: 10vw;
+  margin-left: 40px;
+  grid-row: 2/3;
+  grid-column: 2/3; }
+
+.listpage_search {
+  width: 200px;
+  height: 48px;
+  position: relative;
+  top: -2px;
+  border-radius: 8px;
+  background: #ffffff;
+  border-radius: 12px 12px 0px 12px;
+  padding-left: 12px;
+  outline: none;
+  border: 2px solid #a3a3a3;
+  box-shadow: 3px 6px 16px rgba(0, 0, 0, 0.06); }
+  .listpage_search:focus {
+    border: 2px solid #ff7272; }
+  .listpage_search::placeholder {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.06em;
+    color: #7a7a7a; }
+
+.listpage_filter_box {
+  display: inline-block;
+  position: absolute;
+  left: 232px;
+  top: 0px;
+  width: 140px;
+  height: 50px;
+  border: 2px solid #a3a3a3;
+  border-radius: 8px;
+  box-shadow: 3px 6px 16px rgba(0, 0, 0, 0.06); }
+
+.listpage_filter {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  outline: none;
+  border: 0px;
+  border-radius: 0px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 21px;
+  letter-spacing: -0.07em;
+  cursor: pointer;
+  color: #020202; }
+
+.listpage_filter_order_btn {
+  position: absolute;
+  width: 24px;
+  height: 20px;
+  border: none;
+  right: 16px;
+  top: 8px;
+  transform: rotate(180deg);
+  cursor: pointer; }
+  .listpage_filter_order_btn:focus {
+    outline: none; }
+
+.listpage_editmode_btn {
+  position: relative;
+  left: 172px;
+  width: 80px;
+  height: 54px;
+  background: none;
+  border: 2px solid #a3a3a3;
+  box-sizing: border-box;
+  box-shadow: 3px 6px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+  letter-spacing: -0.07em;
+  color: #4f4848;
+  cursor: pointer; }
+  .listpage_editmode_btn:focus {
+    outline: none; }
+
+.listpage_delete {
+  position: relative;
+  left: 185px;
+  width: 80px;
+  height: 54px;
+  background: none;
+  border: 2px solid #a3a3a3;
+  box-sizing: border-box;
+  box-shadow: 3px 6px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+  letter-spacing: -0.07em;
+  color: #4f4848;
+  cursor: pointer; }
+  .listpage_delete:focus {
+    outline: none; }
+
+.listpage_items_modal {
+  position: relative;
+  grid-row: 1/5;
+  grid-column: 2/3;
+  background-color: #fff;
+  box-shadow: -3px 0px 32px rgba(0, 0, 0, 0.08);
+  border-radius: 16px 0 0 16px; }
+
+.listpage_list {
+  position: relative;
+  top: 13vh;
+  left: 10vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 300px;
+  height: 200px; }
+
+.listpage_list_item {
+  margin-right: 60px;
+  margin-bottom: 60px;
+  position: relative;
+  width: 280px;
+  height: 292px;
+  background: #ffffff;
+  box-shadow: 9px 16px 64px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+  cursor: pointer; }
+
+.listpage_list_image {
+  position: relative;
+  float: left;
+  left: 24px;
+  top: 24px;
+  width: 112px;
+  height: 112px;
+  background: #f5f8f9;
+  opacity: 0.9;
+  border-radius: 8px; }
+
+.listpage_list_name {
+  position: absolute;
+  top: 12px;
+  left: 160px;
+  width: 100px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.06em;
+  margin-bottom: 20px;
+  color: #5a5a5a; }
+
+.listpage_list_price {
+  position: absolute;
+  left: 160px;
+  top: 60px;
+  margin-top: 28px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.06em;
+  color: #5a5a5a; }
+
+.listpage_list_memo {
+  position: absolute;
+  top: 140px;
+  left: 24px;
+  width: 210px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.06em;
+  color: #606060; }
+
+.listpage_page_group {
+  position: absolute;
+  bottom: 6.5vh;
+  left: 12.7vw; }
+
+.listpage_page {
+  display: inline-block;
+  margin-right: 16px;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  border: 2px solid #595959;
+  box-sizing: border-box;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 8px; }
