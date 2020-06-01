@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../modules/reducer";
 import { userLogin, userLogout } from "../modules/auth";
+import { fecthLogin } from "../actions/index";
 import { useCallback } from "react";
 
 export default function useAuth() {
@@ -17,10 +18,17 @@ export default function useAuth() {
   const onLogout = useCallback(() => {
     dispatch(userLogout());
   }, [dispatch]);
+  const fetchLoginAPI = useCallback(
+    (email: string, password: string) => {
+      dispatch(fecthLogin(email, password));
+    },
+    [dispatch],
+  );
   return {
     user_id,
     user_name,
     onLogin,
     onLogout,
+    fetchLoginAPI,
   };
 }

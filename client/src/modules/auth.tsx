@@ -1,5 +1,6 @@
 export const USER_LOGIN = "USER_LOGIN" as const;
 export const USER_LOGOUT = "USER_LOGOUT" as const;
+
 export const userLogin = (userInfo: any) => ({
   type: USER_LOGIN,
   payload: {

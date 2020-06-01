@@ -10,7 +10,9 @@ import {
   deletedItem,
   deletedList,
   deleteMultiItems,
+  getMonthly,
 } from "../modules/items";
+
 import { useCallback } from "react";
 
 export default function useItems() {
@@ -74,6 +76,12 @@ export default function useItems() {
     },
     [dispatch],
   );
+  const getMonthly_list = useCallback(
+    (user_id) => {
+      dispatch(getMonthly(user_id));
+    },
+    [dispatch],
+  );
 
   return {
     items_total,
@@ -88,5 +96,6 @@ export default function useItems() {
     deleteList,
     deleteItem,
     multiDelete,
+    getMonthly_list,
   };
 }

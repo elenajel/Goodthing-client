@@ -23,14 +23,12 @@ const Signin: React.FC<state> = ({ history }) => {
     err: null, //전처리
     errors: {}, //보관소
   });
-  let { onLogin, user_id } = useAuth();
+  let { onLogin, user_id, fetchLoginAPI } = useAuth();
 
   useEffect(() => {
     if (user_id === 0) {
       validUserId(vaildUserIdSuccess);
-
     } else {
-
     }
   }, []);
 
@@ -53,28 +51,31 @@ const Signin: React.FC<state> = ({ history }) => {
     const { email, password, errors } = state;
     const { vali_error } = SigninInput.validateInput(password);
     if (vali_error === "" && Object.keys(errors).length === 0) {
-      let data = { email, password };
-      let opt = {
-        headers: { "content-type": "application/json" },
-        withCredentials: true,
-      };
-      let url = "http://18.217.232.233:8080/login";
-      try {
-        const res = await axios.post(url, data, opt);
-        if (res.status === 200) {
-          await onLogin(res.data);
-          await history.replace("/home");
-        }
-      } catch ({ response: { status } }) {
-        if (status === 403) {
-          alert("이메일을 확인해주세요.");
-          history.replace("/signin");
-        }
-        if (status === 401) {
-          alert("비밀번호를 확인해주세요.");
-          history.replace("signin");
-        }
-      }
+      //! 이 부분에서 사가 미들웨어 호출
+      fetchLoginAPI(email, password);
+      // let data = { email, password };
+      // let opt = {
+      //   headers: { "content-type": "application/json" },
+      //   withCredentials: true,
+      // };
+      // let url = "http://18.217.232.233:8080/login";
+
+      // try {
+      //   const res = await axios.post(url, data, opt);
+      //   if (res.status === 200) {
+      //     await onLogin(res.data);
+      //     await history.replace("/home");
+      //   }
+      // } catch ({ response: { status } }) {
+      //   if (status === 403) {
+      //     alert("이메일을 확인해주세요.");
+      //     history.replace("/signin");
+      //   }
+      //   if (status === 401) {
+      //     alert("비밀번호를 확인해주세요.");
+      //     history.replace("signin");
+      //   }
+      // }
     }
   };
   const { email, password } = state;

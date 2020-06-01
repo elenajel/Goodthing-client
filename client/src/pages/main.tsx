@@ -24,6 +24,7 @@ const Main: React.SFC<Props> = ({ history }) => {
     SumAllMonthly,
     itemStoreInit,
     getTotalyItem,
+    getMonthly_list,
   } = useItems();
 
   const { user_id, user_name, onLogout, onLogin } = useUserInfo();
@@ -31,6 +32,16 @@ const Main: React.SFC<Props> = ({ history }) => {
     value: "",
     curItem: {}, //item 하나의 객체,
   });
+  const useCustum = (defaultValue: any) => {
+    const [value, setValue] = useState(defaultValue);
+
+    const onChange = (e: any) => {
+      const {
+        target: { value },
+      } = e;
+      setValue(value);
+    };
+  };
 
   const handleItemClick = ({ id }: any) => {
     let curItem = items_monthly.filter((item: any) => item.id === id);
@@ -45,7 +56,8 @@ const Main: React.SFC<Props> = ({ history }) => {
     if (user_id === 0) {
       validUserId(vaildUserSucess, validUserFailed);
     } else {
-      requestMonthlyItem(user_id);
+      getMonthly_list(user_id);
+      // requestMonthlyItem(user_id);
     }
   }, []);
 
@@ -54,7 +66,7 @@ const Main: React.SFC<Props> = ({ history }) => {
   }, [items_monthly]);
 
   useEffect(() => {
-    user_id > 0 && user_id !== undefined && requestMonthlyItem(user_id);
+    user_id > 0 && user_id !== undefined && getMonthly_list(user_id);
   }, [user_id]);
 
   const vaildUserSucess = (res: any) => onLogin(res.data);

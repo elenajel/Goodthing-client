@@ -1,3 +1,6 @@
+import axios from "axios";
+
+//! 디렉토리 구조는 ducks pattern 사용했습니다
 export const ITEMS_GET = "MONTHLY_ITEMS_GET" as const;
 export const ITEMS_GET_TOTAL = "ITEMS_GET_TOTAL" as const;
 export const ITEMS_STORE_INIT = "ITEM_STORE_INIT" as const;
@@ -7,6 +10,36 @@ export const LIST_PURCHASED = "LIST_PURCHASED" as const;
 export const ITEMS_DELETE = "ITEMS_DELETE" as const;
 export const ITEMS_MULTI_DELETE = "ITEMS_MULTI_DELETE" as const;
 export const LIST_DELETE = "LIST_DELETE" as const;
+
+//! 편의상 API도 일단 한 파일에 다 넣어놓았지만 마찬가지로 API 폴더에 따로 분류해야 합니다.
+const getMonthlyAPI = (user_id: number) => {
+  return axios.get(
+    `http://18.217.232.233:8080/monthly_list?user_id=${user_id}`,
+  );
+};
+const getTotalyAPI = (user_id: number) => {
+  return axios.get(`http://18.217.232.233:8080/total_list?user_id=${user_id}`);
+};
+
+//! 이 부분이 thunk로 작성한 미들웨어 보시다 싶히 순수 액션 객체를 리턴하는 형태가 아닌
+//! 액션 디스패쳐 함수를 리턴하는 형태 => 사가는 순수 액션 객체를 리턴
+export const getMonthly = (user_id: number) => async (dispatch: any) => {
+  try {
+    let res = await getMonthlyAPI(user_id);
+    dispatch({ type: ITEMS_GET, payload: res.data.monthly_list.items });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getTotaly = (user_id: number) => async (dispatch: any) => {
+  try {
+    let res = await getTotalyAPI(user_id);
+    dispatch({ type: ITEMS_GET_TOTAL, payload: res.data.total_list.items });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export const getMonthlyItems = (items: any) => ({
   type: ITEMS_GET,
